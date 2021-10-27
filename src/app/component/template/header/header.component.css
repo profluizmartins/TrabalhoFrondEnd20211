@@ -1,0 +1,14 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.header a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
