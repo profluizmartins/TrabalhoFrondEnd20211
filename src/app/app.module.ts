@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/template/header/header.component';
@@ -21,6 +22,16 @@ import { EntradaListComponent } from './component/view/entrada/entrada-list/entr
 import { EstoqueListComponent } from './component/view/estoque/estoque-list/estoque-list.component';
 import { VendaListComponent } from './component/view/venda/venda-list/venda-list.component';
 import { ProdutoListComponent } from './component/view/produto/produto-list/produto-list.component';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntlPtBr } from './util/paginator-ptbr-i8n';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -46,9 +57,18 @@ import { ProdutoListComponent } from './component/view/produto/produto-list/prod
     MatSidenavModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    HttpClientModule,
+    MatDialogModule,
+    MatListModule,    
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
+
   ],
-  providers: [],
+  providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorIntlPtBr} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
