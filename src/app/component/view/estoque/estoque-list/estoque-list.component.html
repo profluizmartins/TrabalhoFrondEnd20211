@@ -1,1 +1,60 @@
-<p>estoque-list works!</p>
+<div class="container">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Filtrar por Nome</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Cimento" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="produtoEstoques" matSort>
+
+        <ng-container matColumnDef="idProdutoEstoque">
+          <th class="id" mat-header-cell *matHeaderCellDef mat-sort-header> #ID </th>
+          <td class="id" mat-cell *matCellDef="let row"> {{row.idProdutoEstoque}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="grupo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Grupo </th>
+          <td mat-cell *matCellDef="let row"> {{row.grupo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nmProduto">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+          <td mat-cell *matCellDef="let row"> {{row.nmProduto}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="prUnitario">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor </th>
+          <td mat-cell *matCellDef="let row"> R$ {{formatarValor(row.prUnitario)}} por {{row.unidadeMedida}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="qtdEstoque">
+          <th class="qtd" mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade em Estoque </th>
+          <td class="qtd" mat-cell *matCellDef="let row"> {{row.qtdEstoque}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="qtdReservada">
+          <th class="qtd" mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade Reservada </th>
+          <td class="qtd" mat-cell *matCellDef="let row"> {{row.qtdReservada}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr matColumnDef="loading">
+          <td *matFooterCellDef colspan="6"> Carrengando Dados... </td>
+        </tr>
+
+        <mat-footer-row *matFooterRowDef="[ 'loading' ]" [ngClass]="{ 'hide': produtoEstoques!=null }"></mat-footer-row>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="6">Nenhum produto encontrado com o nome "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [length]="resultsLength" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons
+        aria-label="Selecionar página de produtos no estoque">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
