@@ -5,11 +5,11 @@ import { PagamentoService } from 'src/app/service/pagamento.service';
 import { Pagamento } from '../model/pagamento';
 
 @Component({
-  selector: 'app-pagamento-list',
-  templateUrl: './pagamento-list.component.html',
-  styleUrls: ['./pagamento-list.component.css'],
+  selector: 'app-pagamento-pendente',
+  templateUrl: './pagamento-pendente.component.html',
+  styleUrls: ['./pagamento-pendente.component.css'],
 })
-export class PagamentoListComponent implements OnInit {
+export class PagamentoPendenteComponent implements OnInit {
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -26,7 +26,6 @@ export class PagamentoListComponent implements OnInit {
     'valor',
     'total',
   ];
-  // dataSource!: MatTableDataSource<ProdutoEstoque>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -45,7 +44,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '2',
@@ -54,7 +53,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '3',
@@ -63,7 +62,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '4',
@@ -72,7 +71,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '5',
@@ -81,7 +80,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
     ];
   }

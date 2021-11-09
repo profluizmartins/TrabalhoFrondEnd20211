@@ -10,30 +10,31 @@ import { PessoaListComponent } from './component/view/pessoa/pessoa-list/pessoa-
 import { PagamentoListComponent } from './component/view/pagamento/pagamento-list/pagamento-list.component';
 import { UsuarioListComponent } from './component/view/usuario/usuario-list/usuario-list.component';
 import { ProdutoListComponent } from './component/view/produto/produto-list/produto-list.component';
+import { PagamentoPendenteComponent } from './component/view/pagamento/pagamento-pendente/pagamento-pendente.component';
+import { CriarPagamentoComponent } from './component/view/pagamento/criar-pagamento/criar-pagamento.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: MainComponent,
     children: [
-      { path: "", component: HomeComponent},
-      { path: "entrada", component: EntradaListComponent},
-      { path: "estoque", component: EstoqueListComponent},
-      { path: "venda", component: VendaListComponent},
-      { path: "pessoa", component: PessoaListComponent},
-      { path: "pagamento", component: PagamentoListComponent},
-      { path: "usuario", component: UsuarioListComponent},
-      { path: "produto", component: ProdutoListComponent},
-    ]
-  }
+      { path: '', component: HomeComponent },
+      { path: 'entrada', component: EntradaListComponent },
+      { path: 'estoque', component: EstoqueListComponent },
+      { path: 'venda', component: VendaListComponent },
+      { path: 'pessoa', component: PessoaListComponent },
+      { path: 'pagamento', component: PagamentoListComponent },
+      { path: 'pagamento-pendente', component: PagamentoPendenteComponent },
+      { path: 'cadastrar-pagamento', component: CriarPagamentoComponent },
+      { path: 'usuario', component: UsuarioListComponent },
+      { path: 'produto', component: ProdutoListComponent },
+    ],
+  },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule, 
-    RouterModule.forRoot(routes)
-  ],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
