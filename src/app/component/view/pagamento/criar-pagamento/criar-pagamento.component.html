@@ -1,1 +1,28 @@
-<p>criar-pagamento works!</p>
+<mat-card>
+  <mat-card-title>{{ titulo }}</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        type="date"
+        placeholder="Data do Pagamento"
+        name="data_pagamento"
+        [(ngModel)]="pagamento.data_pagamento"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Valor do Pagamento"
+        name="valor_pagamento"
+        [(ngModel)]="pagamento.valor_pagamento"
+      />
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+  <button mat-raised-button color="warn" routerLink="/pagamento/">
+    Cancelar
+  </button>
+</mat-card>

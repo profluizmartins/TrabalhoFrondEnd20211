@@ -43,4 +43,8 @@ export class PagamentoService {
     // console.log(url)
     return this.http.get<any>(url);
   }
+
+  create(pagamento: any): Observable<any> {
+    return this.http.post(this.urlBase, pagamento);
+  }
 }
