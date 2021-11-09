@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.msg-error {
+    background-color: red;
+    color: white;
+}
+
+.msg-success {
+    background-color: green;
+    color: white;
+}
