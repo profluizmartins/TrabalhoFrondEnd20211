@@ -1,23 +1,15 @@
-<<<<<<< HEAD
-//import { HotelService } from './../../../../service/hotel.service';
-import { PagamentoService } from 'src/app/service/pagamento.service';
-import { Component, OnInit } from '@angular/core';
-import { Pagamento } from 'src/app/model/pagamento.model';
-import { MatDialog } from '@angular/material/dialog';
-=======
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { PagamentoService } from 'src/app/service/pagamento.service';
 import { Pagamento } from '../model/pagamento';
->>>>>>> 9957ba9f1f8a13ad5cf29f1c4b4bc16b8d6b4543
 
 @Component({
-  selector: 'app-pagamento-list',
-  templateUrl: './pagamento-list.component.html',
-  styleUrls: ['./pagamento-list.component.css'],
+  selector: 'app-pagamento-pendente',
+  templateUrl: './pagamento-pendente.component.html',
+  styleUrls: ['./pagamento-pendente.component.css'],
 })
-export class PagamentoListComponent implements OnInit {
+export class PagamentoPendenteComponent implements OnInit {
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
@@ -34,7 +26,6 @@ export class PagamentoListComponent implements OnInit {
     'valor',
     'total',
   ];
-  // dataSource!: MatTableDataSource<ProdutoEstoque>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -53,7 +44,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '2',
@@ -62,7 +53,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '3',
@@ -71,7 +62,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '4',
@@ -80,7 +71,7 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
       {
         id: '5',
@@ -89,16 +80,12 @@ export class PagamentoListComponent implements OnInit {
         quantidade: 2,
         valor: 15,
         total: 30,
-        status: 'aprovado',
+        status: 'pendente',
       },
     ];
   }
 
-<<<<<<< HEAD
-}
-=======
   applyFilter(event: any) {
     console.log('filtrar', event);
   }
 }
->>>>>>> 9957ba9f1f8a13ad5cf29f1c4b4bc16b8d6b4543

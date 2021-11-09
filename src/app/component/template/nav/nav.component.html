@@ -1,42 +1,57 @@
 <mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64" fixedBottomGap="64">
-        <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="/">
-                <i class="material-icons">home</i>
-                Início
-            </a>
-            <a mat-list-item routerLink="/entrada">
-                <i class="material-icons">receipt</i>
-                Entrada
-            </a>
-            <a mat-list-item routerLink="/estoque">
-                <i class="material-icons">local_library</i>
-                Estoque
-            </a>
-    
-            <a mat-list-item routerLink="/venda">
-                <i class="material-icons">book</i>
-                Vendas
-            </a>
-            <a mat-list-item routerLink="/pessoa">
-                <i class="material-icons">people</i>
-                Cadastro de Pessoas
-            </a>
-            <a mat-list-item routerLink="/pagamento">
-                <i class="material-icons">receipt_long</i>
-                Pagamentos
-            </a>
-            <a mat-list-item routerLink="/produto">
-                <i class="material-icons">inventory</i>
-               Produtos
-            </a>
-            <a mat-list-item routerLink="/usuario">
-                <i class="material-icons">person</i>
-               Usuários
-            </a>           
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content class="content">
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+  <mat-sidenav
+    class="sidenav"
+    mode="side"
+    opened
+    fixedInViewport="true"
+    fixedTopGap="64"
+    fixedBottomGap="64"
+  >
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/">
+        <i class="material-icons">home</i>
+        Início
+      </a>
+      <a mat-list-item routerLink="/entrada">
+        <i class="material-icons">receipt</i>
+        Entrada
+      </a>
+      <a mat-list-item routerLink="/estoque">
+        <i class="material-icons">local_library</i>
+        Estoque
+      </a>
+
+      <a mat-list-item routerLink="/venda">
+        <i class="material-icons">book</i>
+        Vendas
+      </a>
+      <a mat-list-item routerLink="/pessoa">
+        <i class="material-icons">people</i>
+        Cadastro de Pessoas
+      </a>
+      <a mat-list-item routerLink="/pagamento">
+        <i class="material-icons">receipt_long</i>
+        Pagamentos Aprovados
+      </a>
+      <a mat-list-item routerLink="/pagamento-pendente">
+        <i class="material-icons">receipt_long</i>
+        Pagamentos Pendentes
+      </a>
+      <a mat-list-item routerLink="/cadastrar-pagamento">
+        <i class="material-icons">receipt_long</i>
+        Cadastrar pagamento
+      </a>
+      <a mat-list-item routerLink="/produto">
+        <i class="material-icons">inventory</i>
+        Produtos
+      </a>
+      <a mat-list-item routerLink="/usuario">
+        <i class="material-icons">person</i>
+        Usuários
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>

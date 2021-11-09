@@ -11,14 +11,20 @@ import { PessoaListComponent } from './component/view/pessoa/pessoa-list/pessoa-
 import { PagamentoListComponent } from './component/view/pagamento/pagamento-list/pagamento-list.component';
 import { UsuarioListComponent } from './component/view/usuario/usuario-list/usuario-list.component';
 import { ProdutoListComponent } from './component/view/produto/produto-list/produto-list.component';
+<<<<<<< HEAD
 import { PagamentoFormComponent } from './component/view/pagamento/pagamento-form/pagamento-form.component';
 import { PagamentoUpdateComponent } from './component/view/pagamento/pagamento-update/pagamento-update.component';
+=======
+import { PagamentoPendenteComponent } from './component/view/pagamento/pagamento-pendente/pagamento-pendente.component';
+import { CriarPagamentoComponent } from './component/view/pagamento/criar-pagamento/criar-pagamento.component';
+>>>>>>> 9957ba9f1f8a13ad5cf29f1c4b4bc16b8d6b4543
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: MainComponent,
     children: [
+<<<<<<< HEAD
       { path: "", component: HomeComponent},
       { path: "entrada", component: EntradaListComponent},
       { path: "estoque", component: EstoqueListComponent},
@@ -34,6 +40,25 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+=======
+      { path: '', component: HomeComponent },
+      { path: 'entrada', component: EntradaListComponent },
+      { path: 'estoque', component: EstoqueListComponent },
+      { path: 'venda', component: VendaListComponent },
+      { path: 'pessoa', component: PessoaListComponent },
+      { path: 'pagamento', component: PagamentoListComponent },
+      { path: 'pagamento-pendente', component: PagamentoPendenteComponent },
+      { path: 'cadastrar-pagamento', component: CriarPagamentoComponent },
+      { path: 'usuario', component: UsuarioListComponent },
+      { path: 'produto', component: ProdutoListComponent },
+    ],
+  },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+>>>>>>> 9957ba9f1f8a13ad5cf29f1c4b4bc16b8d6b4543
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
