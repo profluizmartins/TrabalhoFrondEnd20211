@@ -1,0 +1,58 @@
+<div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+    GitHub's API rate limit has been reached. It will be reset in one minute.
+  </div>
+</div>
+
+<mat-card class="example-card mat-elevation-z3">
+  <button mat-button color="primary" routerLink="form" class="button-new">Nova Pessoa Juridica</button>
+  <mat-card-header>
+    <mat-card-title>Pessoas Juridicas</mat-card-title>
+    <mat-card-subtitle>Lista de Pessoas Juridicas Cadastradas</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+    <table mat-table [dataSource]="pessoasJuridicas" class="mat-elevation-z8" matSort matSortActive="idPessoaJuridica" matSortDisableClear matSortDirection="desc">
+
+      <ng-container matColumnDef="idPessoaJuridica">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let pessoaJuridica"> {{pessoaJuridica.idPessoaJuridica}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome da pessoa </th>
+        <td mat-cell *matCellDef="let pessoaJuridica"> {{pessoaJuridica.pessoa.nome}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="cnpj">
+        <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+        <td mat-cell *matCellDef="let pessoaJuridica"> {{pessoaJuridica.cnpj}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="atividade">
+        <th mat-header-cell *matHeaderCellDef> Atividade </th>
+        <td mat-cell *matCellDef="let pessoaJuridica"> {{pessoaJuridica.atividade}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let pessoaJuridica">
+          <a routerLink="/pessoaJuridica/{{pessoaJuridica.idPessoaJuridica}}" class="edit">
+            <button mat-raised-button color="primary"><i class="material-icons">edit</i> </button>
+          </a>
+          <a>
+            <button mat-raised-button color="warn"><i class="material-icons" (click)="excluir(pessoaJuridica)">delete</i> </button>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="resultsLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleciona a página para retornar as pessoas jurídicas"></mat-paginator>
+  </mat-card-content>
+</mat-card>

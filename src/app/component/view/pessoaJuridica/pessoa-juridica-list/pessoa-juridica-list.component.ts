@@ -1,34 +1,35 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {Pessoa} from "../../../../model/pessoa.model";
-import {MatSort} from "@angular/material/sort";
-import {catchError, map, startWith, switchMap} from "rxjs/operators";
-import {merge, of as observableOf} from "rxjs";
-import {PessoaService} from "../../../../service/pessoa.service";
-import {MatDialog} from "@angular/material/dialog";
-import {ConfirmDeleteComponent} from "../../../template/confirm-delete/confirm-delete.component";
+import {PessoaJuridica} from "../../../../model/pessoaJuridica.model";
 import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
+import {PessoaJuridicaService} from "../../../../service/pessoa-juridica.service";
+import {MatDialog} from "@angular/material/dialog";
+import {Pessoa} from "../../../../model/pessoa.model";
+import {ConfirmDeleteComponent} from "../../../template/confirm-delete/confirm-delete.component";
+import {merge, of as observableOf} from "rxjs";
+import {catchError, map, startWith, switchMap} from "rxjs/operators";
 
 @Component({
-  selector: 'app-pessoa-list',
-  templateUrl: './pessoa-list.component.html',
-  styleUrls: ['./pessoa-list.component.css']
+  selector: 'app-pessoa-juridica-list',
+  templateUrl: './pessoa-juridica-list.component.html',
+  styleUrls: ['./pessoa-juridica-list.component.css']
 })
-export class PessoaListComponent implements AfterViewInit {
+export class PessoaJuridicaListComponent implements AfterViewInit {
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
-  pessoas: Pessoa[] = []
-  displayedColumns: string[] = ['ID', 'nome', 'endereco', 'acao'];
+  pessoasJuridicas: PessoaJuridica[] = []
+  displayedColumns: string[] = ['idPessoaJuridica', 'nome', 'cnpj','atividade', 'acao'];
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
-  constructor(public service: PessoaService, private dialog: MatDialog) { }
+  constructor(private service: PessoaJuridicaService, private dialog: MatDialog) { }
 
-  excluir(pessoa: Pessoa): void{
+  excluir(pessoaJuridica: PessoaJuridica): void{
     const dialogRef = this.dialog.open(ConfirmDeleteComponent,{
       data: {
-        message: `Deseja realmente excluir a pessoa ${pessoa.nome}?`,
+        message: `Deseja realmente excluir a pessoa juridica ${pessoaJuridica.idPessoaJuridica}?`,
         buttonText:{
           ok: 'Excluir',
           cancel: 'Desistir'
@@ -38,15 +39,15 @@ export class PessoaListComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe((confirm: boolean) =>{
       if (confirm){
-        this.service.delete(pessoa).subscribe(() =>{
-            this.service.showMessage("Pessoa excluida com sucesso")
+        this.service.delete(pessoaJuridica).subscribe(() =>{
+            this.service.showMessage("Pessoa juridica excluida com sucesso")
           },
           err => {
-            this.service.showMessage("Não foi possivel excluir a pessoa", true)
+            this.service.showMessage("Não foi possivel excluir a pessoa juridica", true)
           });
       }
       else{
-        this.service.showMessage("Operação de exclusão de pessoa cancelada!")
+        this.service.showMessage("Operação de exclusão de pessoa juridica cancelada!")
       }
     })
   }
@@ -83,8 +84,7 @@ export class PessoaListComponent implements AfterViewInit {
           this.resultsLength = data.totalElements;
           return data.content;
         })
-      ).subscribe(data => this.pessoas = data);
+      ).subscribe(data => this.pessoasJuridicas = data);
   }
-
 }
 

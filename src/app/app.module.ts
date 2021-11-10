@@ -14,6 +14,19 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatListModule } from "@angular/material/list";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatDialogModule} from "@angular/material/dialog";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatSortModule} from "@angular/material/sort";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {FormsModule} from "@angular/forms";
+import {MatTableModule} from "@angular/material/table";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {HttpClientModule} from "@angular/common/http";
+
 import { PublicComponent } from './component/public/public/public.component';
 import { LoginComponent } from './component/public/login/login.component';
 import { SingupComponent } from './component/public/singup/singup.component';
@@ -21,6 +34,13 @@ import { EntradaListComponent } from './component/view/entrada/entrada-list/entr
 import { EstoqueListComponent } from './component/view/estoque/estoque-list/estoque-list.component';
 import { VendaListComponent } from './component/view/venda/venda-list/venda-list.component';
 import { ProdutoListComponent } from './component/view/produto/produto-list/produto-list.component';
+import {PessoaListComponent} from "./component/view/pessoa/pessoa-list/pessoa-list.component";
+import { PessoaJuridicaListComponent } from './component/view/pessoaJuridica/pessoa-juridica-list/pessoa-juridica-list.component';
+import { PessoaJuridicaFormComponent } from './component/view/pessoaJuridica/pessoa-juridica-form/pessoa-juridica-form.component';
+import { PessoaJuridicaUpdateComponent } from './component/view/pessoaJuridica/pessoa-juridica-update/pessoa-juridica-update.component';
+import { PessoaUpdateComponent } from './component/view/pessoa/pessoa-update/pessoa-update.component';
+import { PessoaFormComponent } from './component/view/pessoa/pessoa-form/pessoa-form.component';
+import { ConfirmDeleteComponent } from './component/template/confirm-delete/confirm-delete.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +55,14 @@ import { ProdutoListComponent } from './component/view/produto/produto-list/prod
     EntradaListComponent,
     EstoqueListComponent,
     VendaListComponent,
-    ProdutoListComponent    
+    ProdutoListComponent,
+    PessoaListComponent,
+    PessoaJuridicaListComponent,
+    PessoaJuridicaFormComponent,
+    PessoaJuridicaUpdateComponent,
+    PessoaUpdateComponent,
+    PessoaFormComponent,
+    ConfirmDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +73,19 @@ import { ProdutoListComponent } from './component/view/produto/produto-list/prod
     MatSidenavModule,
     MatCardModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatTableModule,
+    MatSelectModule,
+    MatInputModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

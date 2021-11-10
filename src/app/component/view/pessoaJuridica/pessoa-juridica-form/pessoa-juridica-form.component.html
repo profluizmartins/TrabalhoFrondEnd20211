@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>{{titulo}}</mat-card-title>
+  <form [formGroup]="formulario" (ngSubmit)="salvar()">
+    <mat-form-field appearance="fill">
+      <mat-label>-- Selecione a Pessoa --</mat-label>
+      <mat-select formControlName="pessoa" [compareWith]="comparePessoa">
+        <mat-option *ngFor="let p of pessoas" [value]="p">
+          {{p.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="CNPJ" formControlName="cnpj">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Atividade" formControlName="atividade">
+    </mat-form-field>
+    <span class="button">
+      <button mat-raised-button color="primary" type="submit">Salvar</button>
+      <button mat-raised-button color="warn" routerLink="/pessoaJuridica">Cancelar</button>
+    </span>
+  </form>
+</mat-card>
