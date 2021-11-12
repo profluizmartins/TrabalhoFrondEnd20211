@@ -41,6 +41,8 @@ import { PessoaJuridicaUpdateComponent } from './component/view/pessoaJuridica/p
 import { PessoaUpdateComponent } from './component/view/pessoa/pessoa-update/pessoa-update.component';
 import { PessoaFormComponent } from './component/view/pessoa/pessoa-form/pessoa-form.component';
 import { ConfirmDeleteComponent } from './component/template/confirm-delete/confirm-delete.component';
+import { VendaFormComponent } from './component/view/venda/venda-form/venda-form.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,8 @@ import { ConfirmDeleteComponent } from './component/template/confirm-delete/conf
     PessoaJuridicaUpdateComponent,
     PessoaUpdateComponent,
     PessoaFormComponent,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    VendaFormComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,8 @@ import { ConfirmDeleteComponent } from './component/template/confirm-delete/conf
     MatSelectModule,
     MatInputModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
