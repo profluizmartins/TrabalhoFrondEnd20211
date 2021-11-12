@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-title>{{titulo}}</mat-card-title>
+  <form [formGroup]="formulario" (ngSubmit)="salvar()">
+    <mat-form-field>
+      <input matInput placeholder="Nome da Pessoa" formControlName="nome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Endereco" formControlName="endereco">
+    </mat-form-field>
+    <span class="button">
+      <button mat-raised-button color="primary" type="submit">Salvar</button>
+      <button mat-raised-button color="warn" routerLink="/pessoa">Cancelar</button>
+    </span>
+  </form>
+</mat-card>
