@@ -11,47 +11,34 @@
     </mat-form-field>
 
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="pagamentos" matSort>
-        <ng-container matColumnDef="idProduto">
+      <table mat-table [dataSource]="arrayPagamento" matSort>
+        <ng-container matColumnDef="idVendaPagamento">
           <th class="id" mat-header-cell *matHeaderCellDef mat-sort-header>
             #ID
           </th>
-          <td class="id" mat-cell *matCellDef="let row">{{ row.id }}</td>
+          <td class="id" mat-cell *matCellDef="let row">{{ row.idVendaPagamento }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="nome">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
-          <td mat-cell *matCellDef="let row">{{ row.nome }}</td>
+
+        <ng-container matColumnDef="dtPagamento">
+          <th class="qtd" mat-header-cell *matHeaderCellDef mat-sort-header>
+            Data Pagamento
+          </th>
+          <td class="qtd" mat-cell *matCellDef="let row"> {{ row.dtPagamento }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="vlPagamento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
+          <td mat-cell *matCellDef="let row">R$ {{ row.vlPagamento }}</td>
         </ng-container>
 
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
-          <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status de pagamento</th>
+          <td mat-cell *matCellDef="let row">aprovado</td>
         </ng-container>
 
-        <ng-container matColumnDef="nmProduto">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>
-            Nome do Produto
-          </th>
-          <td mat-cell *matCellDef="let row">{{ row.nomeDoProduto }}</td>
-        </ng-container>
 
-        <ng-container matColumnDef="quantidade">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantidade</th>
-          <td mat-cell *matCellDef="let row">{{ row.quantidade }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="valor">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Valor</th>
-          <td mat-cell *matCellDef="let row">R$ {{ row.valor }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="total">
-          <th class="qtd" mat-header-cell *matHeaderCellDef mat-sort-header>
-            Total
-          </th>
-          <td class="qtd" mat-cell *matCellDef="let row">R$ {{ row.total }}</td>
-        </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
@@ -67,17 +54,17 @@
 
         <tr class="mat-row" *matNoDataRow>
           <td class="mat-cell" colspan="6">
-            Nenhum produto encontrado com o nome "2"
+            Nenhum pagamento Aprovado encontrado.
           </td>
         </tr>
       </table>
 
       <mat-paginator
-        [length]="resultsLength"
+        [length]="arrayPagamento.length"
         [pageSize]="10"
         [pageSizeOptions]="[5, 10, 15, 20]"
+        (page)="getPage($event)"
         showFirstLastButtons
-        aria-label="Selecionar página de produtos no estoque"
       >
       </mat-paginator>
     </div>

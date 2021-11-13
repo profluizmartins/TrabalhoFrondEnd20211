@@ -9,7 +9,7 @@ import { Pagamento } from '../component/view/pagamento/model/pagamento';
   providedIn: 'root',
 })
 export class PagamentoService {
-  urlBase: string = 'http://localhost:8080/pagamento';
+  urlBase: string = 'http://localhost:8080/pagamentos';
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
@@ -33,10 +33,6 @@ export class PagamentoService {
     size: number,
     filter: string
   ): Observable<any> {
-    // REALIZAR CHAMADAS HHTP.
-    // if (filter === undefined) {
-    //   filter = '';
-    // }
 
     const url = '';
 
@@ -44,7 +40,34 @@ export class PagamentoService {
     return this.http.get<any>(url);
   }
 
+  findPagamentosPendentesPaginator(
+    sort: string,
+    order: SortDirection,
+    page: number,
+    size: number,
+    filter: string
+  ): Observable<any> {
+    // REALIZAR CHAMADAS HHTP.
+    // if (filter === undefined) {
+    //   filter = '';
+    // }
+
+    const url = this.urlBase + 'pendentes';
+
+    // console.log(url)
+    return this.http.get<any>(url);
+  }
+
   create(pagamento: any): Observable<any> {
-    return this.http.post(this.urlBase, pagamento);
+    return this.http.post(`${this.urlBase}/cadastrarPagamento/${pagamento.venda_id}`, pagamento);
+  }
+
+  getPagamentosPendentes():  Observable<Pagamento[]> {
+    return this.http.get<Pagamento[]>(`${this.urlBase}/pendentes`)
+  }
+
+
+  getPagamentosAprovados():  Observable<Pagamento[]> {
+    return this.http.get<Pagamento[]>(`${this.urlBase}/aprovados`)
   }
 }

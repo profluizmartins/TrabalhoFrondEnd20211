@@ -56,6 +56,7 @@ import { CriarPagamentoComponent } from './component/view/pagamento/criar-pagame
     PagamentoListComponent,
     PagamentoPendenteComponent,
     CriarPagamentoComponent,
+
   ],
   imports: [
     BrowserModule,

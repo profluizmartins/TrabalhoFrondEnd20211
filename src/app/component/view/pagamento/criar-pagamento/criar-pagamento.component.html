@@ -1,7 +1,19 @@
 <mat-card>
   <mat-card-title>{{ titulo }}</mat-card-title>
   <form>
+
     <mat-form-field>
+      <input
+      matInput
+      type="number"
+      placeholder="Id da fatura"
+      name="venda_id"
+      [(ngModel)]="pagamento.venda_id"
+    />
+    </mat-form-field>
+
+    <mat-form-field>
+
       <input
         matInput
         type="date"

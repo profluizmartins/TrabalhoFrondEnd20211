@@ -13,18 +13,17 @@ export class PagamentoListComponent implements OnInit {
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
+  novoArray: any = [];
+  arrayPagamento: any = [];
 
   filterValue!: string;
 
   pagamentos: Pagamento[] = [];
   displayedColumns: string[] = [
-    'idProduto',
-    'nome',
-    'status',
-    'nmProduto',
-    'quantidade',
-    'valor',
-    'total',
+    'idVendaPagamento',
+    'dtPagamento',
+    'vlPagamento',
+    'status'
   ];
   // dataSource!: MatTableDataSource<ProdutoEstoque>
 
@@ -34,56 +33,18 @@ export class PagamentoListComponent implements OnInit {
   constructor(private service: PagamentoService) {}
 
   ngOnInit(): void {
-    // this.service.findAll().subscribe((data) => {
-    //   this.pagamentos = data;
-    // });
-    this.pagamentos = [
-      {
-        id: '1',
-        nome: 'Jairo',
-        nomeDoProduto: 'Viagra',
-        quantidade: 2,
-        valor: 15,
-        total: 30,
-        status: 'aprovado',
-      },
-      {
-        id: '2',
-        nome: 'Joshua',
-        nomeDoProduto: 'Viagra',
-        quantidade: 2,
-        valor: 15,
-        total: 30,
-        status: 'aprovado',
-      },
-      {
-        id: '3',
-        nome: 'Mauricio',
-        nomeDoProduto: 'Viagra',
-        quantidade: 2,
-        valor: 15,
-        total: 30,
-        status: 'aprovado',
-      },
-      {
-        id: '4',
-        nome: 'Gabriel',
-        nomeDoProduto: 'Viagra',
-        quantidade: 2,
-        valor: 15,
-        total: 30,
-        status: 'aprovado',
-      },
-      {
-        id: '5',
-        nome: 'Xaolim matador de porco',
-        nomeDoProduto: 'Viagra',
-        quantidade: 2,
-        valor: 15,
-        total: 30,
-        status: 'aprovado',
-      },
-    ];
+    this.service.getPagamentosAprovados().subscribe((data) => {
+      this.pagamentos = data;
+
+    for (var i = 0; i < this.pagamentos.length; i = i + 5) {
+      this.novoArray.push(this.pagamentos.slice(i, i + 5));
+    }
+    this.arrayPagamento = this.novoArray[0] ?? []
+    });
+  }
+
+  getPage(event: any) {
+    this.arrayPagamento = this.novoArray[event.pageIndex];
   }
 
   applyFilter(event: any) {
