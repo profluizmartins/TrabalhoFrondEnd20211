@@ -1,0 +1,67 @@
+<mat-card class="example-card mat-elevation-z3" >
+    <button mat-button color="primary" class="botton_new" routerLink="/item/form">Novo Item</button>
+    <mat-card-header>
+        <mat-card-title>Itens</mat-card-title>
+        <mat-card-subtitle>Lista de Itens Cadastrados</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+
+        <table mat-table [dataSource]="itens" class="mat-elevation-z8"> 
+  
+            <!-- id Column--> 
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> #ID </th>
+                <td mat-cell *matCellDef="let item"> {{item.idVendaProduto}} </td>
+              </ng-container>
+            
+              <!-- comprador Column -->
+              <ng-container matColumnDef="venda">
+                <th mat-header-cell *matHeaderCellDef> ID da Venda </th>
+                <td mat-cell *matCellDef="let item"> {{item.venda.idVenda}} </td>
+              </ng-container>
+            
+              <!-- produto Column -->
+              <ng-container matColumnDef="produto">
+                <th mat-header-cell *matHeaderCellDef> Produto </th>
+                <td mat-cell *matCellDef="let item"> {{item.produto}} </td>
+              </ng-container>
+            
+              <!-- precoVendaProduto Column -->
+              <ng-container matColumnDef="precoVendaProduto">
+                <th mat-header-cell *matHeaderCellDef> Preço do Produto </th>
+                <td mat-cell *matCellDef="let item"> {{item.precoVendaProduto}} </td>
+              </ng-container>
+  
+              <!-- quantidade Column -->
+              <ng-container matColumnDef="quantidade">
+                  <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+                  <td mat-cell *matCellDef="let item"> {{item.quantidade}} </td>
+              </ng-container>
+  
+              <!-- Stats Column -->
+              <ng-container matColumnDef="concluido">
+                  <th mat-header-cell *matHeaderCellDef> Status da venda </th>
+                  <td mat-cell *matCellDef="let venda"> {{venda.concluido}} </td>
+              </ng-container>
+  
+              <!-- Action Column-->
+              <ng-container matColumnDef="acao">
+                  <th mat-header-cell *matHeaderCellDef>Ações </th>
+                  <td mat-cell *matCellDef="let item">
+                      <a routerLink="/item/{{item.idVendaProduto}}" class="edit">
+                          <button mat-raised-button color="primary"><i class="material-icons">edit</i></button>
+                      </a>
+                      <a>
+                          <button mat-raised-button color="warn" (click)="excluir(item)"><i class="material-icons">delete</i></button>
+                      </a>
+                  </td>
+                </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+  
+  
+    </mat-card-content>
+
+</mat-card>

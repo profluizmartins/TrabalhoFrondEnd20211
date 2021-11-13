@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-title>{{titulo}}</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="ID da Venda" name="venda" [(ngModel)]="item.venda.idVenda">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Produto" name="produto" [(ngModel)]="item.produto">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="number" placeholder="Preço de produtos" name="precoVendaProduto" [(ngModel)]="item.precoVendaProduto">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="number" placeholder="Quantidade de produtos" name="quantidade" [(ngModel)]="item.quantidade">
+        </mat-form-field>
+
+    </form>
+    <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+    <button mat-raised-button color="warn" routerLink="/item/">Cancelar</button>
+</mat-card>

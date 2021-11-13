@@ -11,6 +11,9 @@ import { VendaService } from 'src/app/service/venda.service';
 })
 export class VendaListComponent implements OnInit {
 
+  resultsLength = 0;
+  isLoadingResults = true;
+  isRateLimitReached = false;
   vendas: Venda[] = [];
   displayedColumns: string[] = ['id', 'comprador', 'dataVenda', 'tipoPagamento','qtdPrestacao','concluido','acao']
 

@@ -35,7 +35,7 @@ export class VendaFormComponent implements OnInit {
   salvar(): void {
     this.service.create(this.venda).subscribe(() =>{
       this.service.showMessage("Venda cadastrada com sucesso!")
-      this.router.navigate(['/vendas']);
+      this.router.navigate(['/venda']);
     });
   }
 
