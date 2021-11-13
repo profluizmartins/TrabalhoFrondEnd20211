@@ -16,6 +16,8 @@ import {PessoaJuridicaListComponent} from "./component/view/pessoaJuridica/pesso
 import {PessoaJuridicaFormComponent} from "./component/view/pessoaJuridica/pessoa-juridica-form/pessoa-juridica-form.component";
 import {PessoaJuridicaUpdateComponent} from "./component/view/pessoaJuridica/pessoa-juridica-update/pessoa-juridica-update.component";
 import { VendaFormComponent } from './component/view/venda/venda-form/venda-form.component';
+import { ItemListComponent } from './component/view/venda/item-list/item-list.component';
+import { ItemFormComponent } from './component/view/venda/item-form/item-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,8 @@ const routes: Routes = [
       { path: "estoque", component: EstoqueListComponent},
       { path: "venda", component: VendaListComponent},
       { path: "venda/form", component: VendaFormComponent},
+      { path: "item", component: ItemListComponent},
+      { path: "item/form", component: ItemFormComponent},
       { path: "pessoa", component: PessoaListComponent},
       { path: "pessoa/form", component: PessoaFormComponent},
       { path: "pessoa/:id", component: PessoaUpdateComponent},

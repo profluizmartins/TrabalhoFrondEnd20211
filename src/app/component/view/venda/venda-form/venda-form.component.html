@@ -2,39 +2,37 @@
     <mat-card-title>{{titulo}}</mat-card-title>
     <form>
 
-        <p>
-        <mat-form-field appearance="outline">
-            <input matInput placeholder="Nome do comprador" name="comprador" [(ngModel)]="venda.comprador.nome">
-            <mat-hint>Nome</mat-hint>
-        </mat-form-field>
-        </p>
-        <p>
-        <mat-form-field appearance="outline">
-            <input matInput placeholder="Data Venda" name="dataVenda" [(ngModel)]="venda.dataVenda">
-            <mat-hint>Data Venda</mat-hint>
-        </mat-form-field>
-        </p>
-        <p>
-        <mat-form-field appearance="outline">
-            <input matInput placeholder="Tipo Pagamento" name="tipoPagamento" [(ngModel)]="venda.tipoPagamento">
-            <mat-hint>Tipo Pagamento</mat-hint>
-        </mat-form-field>
-        </p>
-        <p>
-        <mat-form-field appearance="outline">
-            <input matInput type="number" placeholder="Qtd Prestacao" name="qtdPrestacao" [(ngModel)]="venda.qtdPrestacao">
-            <mat-hint>Qtd. Prestação</mat-hint>
-        </mat-form-field>
-        </p>
-        <p>
-        <mat-form-field>
-            <mat-select [(ngModel)]="venda.concluido">
-              <mat-option [value]="true">Finalizada</mat-option>
-              <mat-option [value]="false">Em andamento</mat-option>
-            </mat-select>
-            <mat-hint>Status da venda</mat-hint>
-          </mat-form-field>
-        </p>
+            <p>
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Nome do comprador" name="comprador" [(ngModel)]="venda.comprador.nome">
+                <mat-hint>Nome</mat-hint>
+            </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <input matInput placeholder="Data Venda" name="dataVenda" [(ngModel)]="venda.dataVenda">
+                    <mat-hint>Data Venda</mat-hint>
+                </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="Tipo Pagamento" name="tipoPagamento" [(ngModel)]="venda.tipoPagamento">
+                        <mat-hint>Tipo Pagamento</mat-hint>
+                    </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="number" placeholder="Qtd Prestacao" name="qtdPrestacao" [(ngModel)]="venda.qtdPrestacao">
+                            <mat-hint>Qtd. Prestação</mat-hint>
+                        </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field>
+                                <input matInput placeholder="Status" name="concluido" [(ngModel)]="venda.concluido">
+                                <mat-hint>Status da venda</mat-hint>
+                              </mat-form-field>
+                            </p>
+
 
     </form>
 

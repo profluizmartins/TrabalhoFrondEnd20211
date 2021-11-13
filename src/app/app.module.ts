@@ -43,6 +43,8 @@ import { PessoaFormComponent } from './component/view/pessoa/pessoa-form/pessoa-
 import { ConfirmDeleteComponent } from './component/template/confirm-delete/confirm-delete.component';
 import { VendaFormComponent } from './component/view/venda/venda-form/venda-form.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ItemFormComponent } from './component/view/venda/item-form/item-form.component';
+import { ItemListComponent } from './component/view/venda/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     PessoaUpdateComponent,
     PessoaFormComponent,
     ConfirmDeleteComponent,
-    VendaFormComponent
+    VendaFormComponent,
+    ItemFormComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
